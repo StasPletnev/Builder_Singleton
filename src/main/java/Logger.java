@@ -16,6 +16,7 @@ public class Logger {
 
     public void log(String msg) {
         System.out.println("[" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")) +" "+ num + "] " + msg);
+        num++;
     }
 
     public static Logger getInstance() {
