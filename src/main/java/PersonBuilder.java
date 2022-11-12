@@ -5,6 +5,9 @@ public class PersonBuilder {
     protected String city;
 
     public PersonBuilder name(String name) {
+        if (year < 0) {
+            throw new IllegalStateException("Неверно указан возраст. Он не может быть отрицательным.");
+        }
         this.name = name;
         return this;
     }
@@ -27,9 +30,6 @@ public class PersonBuilder {
     public Person build() {
         if (name == null || surname == null || year == 0 || city == null) {
             throw new IllegalStateException("Не указаны все необходимые данные.");
-        }
-        if (year < 0) {
-            throw new IllegalStateException("Неверно указан возраст. Он не может быть отрицательным.");
         }
         return new Person(name, surname, year, city);
     }
